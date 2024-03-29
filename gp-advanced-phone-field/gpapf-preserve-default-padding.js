@@ -26,7 +26,7 @@ gform.addAction( 'gpapf_after_initialize', function( formId, fieldId, GPAPF ) {
 		const iti = GPAPF.iti;
 
 		GPAPF.$telInput.addEventListener( 'countrychange', gpapfAdjustInputPadding );
-		GPAPF.$telInput.addEventListener( 'keyup', gpapfAdjustInputPadding );
+		GPAPF.$telInput.addEventListener( 'blur', gpapfAdjustInputPadding );
 		gpapfAdjustInputPadding();
 
 		function gpapfAdjustInputPadding() {
@@ -35,11 +35,11 @@ gform.addAction( 'gpapf_after_initialize', function( formId, fieldId, GPAPF ) {
 				const selectedFlagWidth =
 					iti.selectedFlag.offsetWidth || iti._getHiddenSelectedFlagWidth();
 
-				// add 8px of padding
+				// Add 8px of padding
 				if ( iti.isRTL ) {
-				iti.telInput.style.paddingRight = `${selectedFlagWidth + 8}px`;
+					iti.telInput.style.paddingRight = `${selectedFlagWidth + 8}px`;
 				} else {
-				iti.telInput.style.paddingLeft = `${selectedFlagWidth + 8}px`;
+					iti.telInput.style.paddingLeft = `${selectedFlagWidth + 8}px`;
 				}
 			}
 		}
